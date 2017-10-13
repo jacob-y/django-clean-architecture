@@ -1,0 +1,1 @@
+The folders are the same ones than `modules`, corresponding to the clean architecture layers.

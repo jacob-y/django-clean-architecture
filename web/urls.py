@@ -14,6 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path
+<<<<<<< HEAD
 from webapps.views import (payment_create, payment_capture, payment_status)
 
 urlpatterns = [
@@ -23,4 +24,23 @@ urlpatterns = [
          payment_status, name='Get Payment'),
     path(r'payment/<str:payment_gateway>/<str:payment_id>/capture',
          payment_capture, name='Capture Payment'),
+=======
+from webapps.views import (payment_create, payment_capture, payment_status,
+                           card, iban, paypal, submit, thank_you)
+
+urlpatterns = [
+    # REST API
+    path(r'payment/<str:payment_method>/create',
+         payment_create, name='Create Payment'),
+    path(r'payment/<str:payment_method>/<str:payment_id>',
+         payment_status, name='Get Payment'),
+    path(r'payment/<str:payment_method>/<str:payment_id>/capture',
+         payment_capture, name='Capture Payment'),
+    # WEB UI
+    path(r'paypal', paypal, name='Pay with PayPal'),
+    path(r'card', card, name='Pay with Card'),
+    path(r'sepa', iban, name='Pay with SEPA'),
+    path(r'submit', submit, name='Submit'),
+    path(r'thank_you', thank_you, name='Thank you'),
+>>>>>>> 6987e9b (Web UI)
 ]

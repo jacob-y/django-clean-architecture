@@ -1,0 +1,13 @@
+<p>Start a payment.</p>
+
+<form action="submit" method="post">
+  {% csrf_token %}
+  {% for field in form %}
+  <div class="fieldWrapper">
+    {{ field.errors }}
+    {{ field.label_tag }} {{ field }}
+  </div>
+  <br/>
+  {% endfor %}
+  <input type="submit" value="Pay" />
+</form>
