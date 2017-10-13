@@ -1,0 +1,5 @@
+django==1.11.6
+djangorestframework==3.6.3
+django-rest-swagger==2.1.2
+requests==2.10.0
+psycopg2==2.7.1

@@ -1,3 +1,7 @@
+
+.idea
+postgres_api/migrations
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
