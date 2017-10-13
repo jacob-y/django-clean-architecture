@@ -1,0 +1,135 @@
+openapi: 3.0.2
+info:
+  title: Payments API
+  version: 1.0.0
+
+paths:
+  /payment/<gateway>/create:
+    post:
+      parameters:
+        - in: query
+          name: payment_method
+          required: true
+          description: Payment method
+          schema:
+            type: string
+            values:
+              - card
+              - sepa_debit
+              - paypal
+        - in: query
+          name: first_name
+          required: true
+          description: Payer first name
+          schema:
+            type: string
+        - in: query
+          name: last_name
+          required: true
+          description: Payer last name
+          schema:
+            type: string
+        - in: query
+          name: email
+          required: true
+          description: Payer email
+          schema:
+            type: string
+        - in: query
+          name: address1
+          required: true
+          description: Payer address 1
+          schema:
+            type: string
+        - in: query
+          name: address2
+          required: true
+          description: Payer address 2
+          schema:
+            type: string
+        - in: query
+          name: post_code
+          required: true
+          description: Payer post code
+          schema:
+            type: string
+        - in: query
+          name: country_code
+          required: true
+          description: Payer country code
+          schema:
+            type: string
+        - in: query
+          name: lang
+          required: true
+          description: Payer language
+          schema:
+            type: string
+        - in: query
+          name: transaction_id
+          required: true
+          description: Payment transaction id
+          schema:
+            type: string
+        - in: query
+          name: return_url
+          required: true
+          description: Return URL after payment
+          schema:
+            type: string
+      summary: Create a new payment
+      responses:
+        200:
+          description: Payment response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Payment'
+              example:
+                id: 1234
+  /payment/<gateway>/<id>/capture:
+    post:
+      responses:
+        200:
+          description: Payment response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Payment'
+              example:
+                id: 1234
+  /payment/<gateway>/<id>:
+    get:
+      responses:
+        200:
+          description: Payment response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Payment'
+              example:
+                id: 1234
+
+components:
+
+  schemas:
+
+    Payment:
+      type: object
+      required:
+        - gateway_id
+        - status
+      properties:
+        gateway_id:
+          type: string
+        status:
+          type: string
+        error_message:
+          type: string
+          optional: true
+        error_code:
+          type: string
+          optional: true
+        redirect_url:
+          type: string
+          optional: true

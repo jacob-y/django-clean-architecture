@@ -1,0 +1,1 @@
+Test the business object entities for basic business rules.

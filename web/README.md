@@ -1,0 +1,1 @@
+This folder was automatically created by Django.

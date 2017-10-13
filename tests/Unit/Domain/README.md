@@ -1,0 +1,1 @@
+Test the domain services with mock implementation of plugins & models.
