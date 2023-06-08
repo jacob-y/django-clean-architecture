@@ -1,0 +1,1 @@
+The `Entites` layer contains core business objects, that are used to store data, do basic consistency checks and implement business rules.
