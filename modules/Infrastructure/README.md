@@ -1,5 +1,3 @@
-The `Infrastructure` layer in addition to `/fileStorage`, `/web` and `/webapps`.
+The `Infrastructure` layer in addition to `/fileStorage`, `/web` and `/webapps`, manages anything related to the framework.
 
-I added this folder in case for future developments.
-
-For instance if we want to monkey patch an SDK library, we will do it here.
+You can put here your monkey patches of the Django classes.

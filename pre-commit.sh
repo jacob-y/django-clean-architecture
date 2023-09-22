@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Run the unit tests and check that they are successful before accepting any commit
+
 'python3 -m unittest discover .'
 if [[ $? = 0 ]]
 then

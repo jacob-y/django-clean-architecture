@@ -1,0 +1,1 @@
+Test the plugin & model implementations with mock HTTP calls.

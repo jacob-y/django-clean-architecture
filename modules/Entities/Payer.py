@@ -21,3 +21,6 @@ class Payer:
         self.country_code = country_code
         self.post_code = post_code
         self.lang = lang
+
+    def full_name(self):
+        return f"{self.first_name} {self.last_name}"
