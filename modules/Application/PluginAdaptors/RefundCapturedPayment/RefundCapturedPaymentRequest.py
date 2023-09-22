@@ -7,7 +7,7 @@ class RefundCapturedPaymentRequest(AbstractPayPalRequest):
         return {}
 
     def _endpoint(self) -> str:
-        return super()._endpoint() + '/v2/payments/captures/' + self._payment.gateway_id + '/refund'
+        return super()._endpoint() + '/v2/payments/captures/' + self._payment.capture_id + '/refund'
 
     def _method(self) -> str:
         return 'POST'

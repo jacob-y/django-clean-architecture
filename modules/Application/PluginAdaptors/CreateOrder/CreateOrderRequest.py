@@ -27,8 +27,8 @@ class CreateOrderRequest(AbstractPayPalRequest):
                 },
                 'reference_id': self._payment.transaction_id,
                 'description': 'PAYPAL PAYMENT DEMO',
-                'invoice_id': self._payment.transaction_id, # visible to the payer
-                'custom_id': 'PAYPAL PAYMENT DEMO' # not visible to the payer
+                'invoice_id': self._payment.transaction_id,  # visible to the payer
+                'custom_id': 'PAYPAL PAYMENT DEMO'  # not visible to the payer
             }],
             'application_context': {
                 'return_url': self._payment.return_url,

@@ -1,0 +1,1 @@
+Will contain later end-to-end test with Cypress.

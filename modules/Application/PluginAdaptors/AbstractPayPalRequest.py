@@ -44,7 +44,12 @@ class AbstractPayPalRequest(ABC):
         return None
 
     def send(self) -> dict:
+        """
+        Very basic implementation of HTTP calls with the requests library.
+        May be replaced later by an interface and an adaptor to allow to change the HTTP client.
+        """
         try:
+
             headers = self._headers()
             match self._method():
                 case 'GET':

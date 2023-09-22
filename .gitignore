@@ -1,5 +1,7 @@
 
 .idea
+.vscode
+
 postgres_api/migrations
 
 # Byte-compiled / optimized / DLL files

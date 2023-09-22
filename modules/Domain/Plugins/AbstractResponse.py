@@ -12,12 +12,16 @@ class AbstractResponse(ABC):
         self._payment = payment
 
     def update_payment(self):
+        """Safe update of the payment that avoids erasing values with None."""
         self._payment.gateway_id = self.id() or self._payment.gateway_id
+        self._payment.capture_id = self.capture_id() or self._payment.capture_id
         self._payment.redirect_url = self.redirect_url() or self._payment.redirect_url
         self._payment.error_code = self.error_code() or self._payment.error_code
         self._payment.error_message = self.error_message() or self._payment.error_message
         if self.is_successful():
             self._payment.status = PaymentStatus.SUCCESSFUL
+        elif self.is_refunded():
+            self._payment.status = PaymentStatus.REFUNDED
         elif self.is_pending():
             self._payment.status = PaymentStatus.PENDING
         else:
@@ -40,11 +44,19 @@ class AbstractResponse(ABC):
         return False
 
     @abstractmethod
+    def is_refunded(self) -> bool:
+        return False
+
+    @abstractmethod
     def redirect_url(self) -> str | None:
         return None
 
     @abstractmethod
     def id(self) -> str | None:
+        return None
+
+    @abstractmethod
+    def capture_id(self) -> str | None:
         return None
 
     @abstractmethod

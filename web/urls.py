@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path
-from webapps.views import payment_create, payment_capture, payment_status
+from webapps.views import payment_create, payment_capture, payment_status, payment_refund
 
 urlpatterns = [
     path(r'payment/create',
@@ -24,5 +24,5 @@ urlpatterns = [
     path(r'payment/<str:payment_id>/capture',
          payment_capture, name='Capture Payment'),
     path(r'payment/<str:payment_id>/refund',
-         payment_capture, name='Refund Payment'),
+         payment_refund, name='Refund Payment'),
 ]

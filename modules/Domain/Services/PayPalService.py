@@ -26,6 +26,6 @@ class PayPalService:
         self.paypal_plugin.capture_payment_for_order(payment)
 
     def refund(self, payment: Payment):
-        payment.check()
-        self.paypal_plugin.get_access_token()
-        self.paypal_plugin.refund_captured_payment(payment)
+        self.status(payment)
+        if payment.status == Payment.PaymentStatus.SUCCESSFUL:
+            self.paypal_plugin.refund_captured_payment(payment)

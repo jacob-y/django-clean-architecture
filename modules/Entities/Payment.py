@@ -14,13 +14,14 @@ class Payment:
     money: Money | None = None
     transaction_id: str | None
     gateway_id: str | None
+    capture_id: str | None
     return_url: str | None
     redirect_url: str | None = None
     status: PaymentStatus | None = None
     error_code: str | None = None
     error_message: str | None = None
 
-    def __init__(self, amount: str | None = None, currency: str | None = None, transaction_id: str | None = None,
+    def __init__(self, amount: int | None = None, currency: str | None = None, transaction_id: str | None = None,
                  gateway_id: str | None = None, return_url: str | None = None):
         if amount and currency:
             self.money = Money(amount=amount, currency=currency)
