@@ -13,9 +13,15 @@ from .ShowOrderDetails.ShowOrderDetailsRequest import ShowOrderDetailsRequest
 from .ShowOrderDetails.ShowOrderDetailsResponse import ShowOrderDetailsResponse
 from .RefundCapturedPayment.RefundCapturedPaymentRequest import RefundCapturedPaymentRequest
 from .RefundCapturedPayment.RefundCapturedPaymentResponse import RefundCapturedPaymentResponse
+from .HTTPClientInterface import HTTPClientInterface
 
 
 class PayPalPluginAdaptor(PayPalPlugin, ABC):
+    http_client_interface: HTTPClientInterface
+
+    def __init__(self, client_id: str, client_secret: str, http_client_interface: HTTPClientInterface):
+        super().__init__(client_id, client_secret)
+        self.http_client_interface = http_client_interface
 
     def get_access_token(self) -> GetAccessTokenResponse:
         request = GetAccessTokenRequest(self)

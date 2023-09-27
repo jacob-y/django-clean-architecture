@@ -64,6 +64,7 @@ Response
 ```json
 {
     "gateway_id": "YOUR_ID",
+    "gateway_status": "",
     "status": "PENDING",
     "redirect_url": "https://www.sandbox.paypal.com/checkoutnow?token=YOUR_ID"
 }
@@ -80,6 +81,7 @@ Response
 ```json
 {
     "gateway_id": "YOUR_ID",
+    "gateway_status": "COMPLETED",
     "status": "SUCCESSFUL"
 }
 ```
@@ -92,6 +94,7 @@ Response
 ```json
 {
     "gateway_id": "YOUR_ID",
+    "gateway_status": "REFUNDED",
     "status": "REFUNDED"
 }
 ```
@@ -105,6 +108,7 @@ Response
 ```json
 {
     "gateway_id": "YOUR_ID",
+    "gateway_status": "REFUNDED",
     "status": "REFUNDED"
 }
 ```

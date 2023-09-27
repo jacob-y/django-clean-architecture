@@ -10,7 +10,7 @@ class CapturePaymentForOrderResponse(AbstractPayPalResponse):
         return False
 
     def is_pending(self):
-        return self._data.get('status') in ['CREATED', 'SAVED', 'APPROVED', 'ACTION_REQUIRED']
+        return self._data.get('status') in ['CREATED', 'SAVED', 'APPROVED', 'PAYER_ACTION_REQUIRED']
 
     def redirect_url(self) -> str | None:
         return None

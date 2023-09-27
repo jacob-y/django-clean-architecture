@@ -20,7 +20,7 @@ class ShowOrderDetailsResponse(AbstractPayPalResponse):
         return self.status() == 'COMPLETED' and self._get_capture_status() == 'REFUNDED'
 
     def is_pending(self) -> bool:
-        return self._data.get('status') in ['CREATED', 'SAVED', 'APPROVED', 'ACTION_REQUIRED'] \
+        return self._data.get('status') in ['CREATED', 'SAVED', 'APPROVED', 'PAYER_ACTION_REQUIRED'] \
             or self._get_capture_status() not in ['REFUNDED', 'COMPLETED']
 
     def redirect_url(self) -> str | None:

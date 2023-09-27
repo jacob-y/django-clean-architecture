@@ -14,6 +14,7 @@ class AbstractResponse(ABC):
     def update_payment(self):
         """Safe update of the payment that avoids erasing values with None."""
         self._payment.gateway_id = self.id() or self._payment.gateway_id
+        self._payment.gateway_status = self.status()
         self._payment.capture_id = self.capture_id() or self._payment.capture_id
         self._payment.redirect_url = self.redirect_url() or self._payment.redirect_url
         self._payment.error_code = self.error_code() or self._payment.error_code

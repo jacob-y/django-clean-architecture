@@ -12,12 +12,13 @@ class PaymentStatus(Enum):
 class Payment:
 
     money: Money | None = None
-    transaction_id: str | None
-    gateway_id: str | None
-    capture_id: str | None
-    return_url: str | None
-    redirect_url: str | None = None
+    transaction_id: str | None = None  # ID on our system
+    gateway_id: str | None = None  # ID of the payment on PayPal
+    capture_id: str | None = None  # ID of the payment capture on PayPal
+    return_url: str | None = None  # URL where to redirect the payer from PayPal after the payment
+    redirect_url: str | None = None  # URL where to redirect the payer to PayPal to do the payment
     status: PaymentStatus | None = None
+    gateway_status: str | None  # status on PayPal
     error_code: str | None = None
     error_message: str | None = None
 
@@ -38,6 +39,8 @@ class Payment:
             'gateway_id': self.gateway_id,
             'status': self.status.name
         }
+        if self.gateway_status:
+            out['gateway_status'] = self.gateway_status
         if self.redirect_url:
             out['redirect_url'] = self.redirect_url
         if self.status == PaymentStatus.FAILED:
