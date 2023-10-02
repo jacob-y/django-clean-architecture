@@ -1,4 +1,4 @@
-from modules.Domain.Ports.PaymentAPIPort import PaymentAPIPort
+from modules.Domain.Ports.PaymentAPIPortInterface import PaymentAPIPort
 from modules.Entities.Payer import Payer
 from modules.Entities.Payment import Payment
 

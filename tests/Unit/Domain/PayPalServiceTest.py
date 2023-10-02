@@ -1,7 +1,7 @@
 import unittest
 
 from modules.Domain.Services.PayPalService import PayPalService
-from modules.Domain.Plugins.PayPalPlugin import PayPalPlugin
+from modules.Domain.Plugins.AbstractPayPalPlugin import PayPalPlugin
 from modules.Domain.Plugins.AbstractResponse import AbstractResponse
 from modules.Entities import Payment
 from modules.Entities.Payer import Payer

@@ -1,3 +1,3 @@
-This is just a basic file storage database of the `Infrastructure` layer.
+This is just a basic file storage database implemented the `Application\ModelAdaptors` layer.
 
-Put your PayPal credentials here inside a JSON named `credentials.json`, that looks like this
+Put your PayPal credentials in `credentials.json`.

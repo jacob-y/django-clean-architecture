@@ -1,4 +1,4 @@
-from modules.Domain.Plugins.PayPalPlugin import PayPalPlugin
+from modules.Domain.Plugins.AbstractPayPalPlugin import PayPalPlugin
 from modules.Entities import Payment
 from modules.Entities.Payer import Payer
 

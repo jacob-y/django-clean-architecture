@@ -11,7 +11,7 @@ class PaymentStatus(Enum):
 
 class Payment:
 
-    money: Money | None = None
+    money: Money | None = None # Money is a Value Object that stores the amount & currency
     transaction_id: str | None = None  # ID on our system
     gateway_id: str | None = None  # ID of the payment on PayPal
     capture_id: str | None = None  # ID of the payment capture on PayPal

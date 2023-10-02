@@ -1,3 +1,1 @@
-The `Plugin` folder contains interfaces for the database, to be implemented in `Application/ModelAdaptor`.
-
-To be completed later.
+The `Model` folder contains interfaces for the persistence layer, to be implemented in `Application/ModelAdaptor`.

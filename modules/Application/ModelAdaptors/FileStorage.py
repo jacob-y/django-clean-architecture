@@ -1,6 +1,6 @@
 import json
 
-from modules.Domain.Models.Configuration import Configuration
+from modules.Domain.Models.ConfigurationInterface import Configuration
 
 
 class FileStorage(Configuration):

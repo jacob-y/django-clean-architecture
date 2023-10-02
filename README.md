@@ -1,9 +1,21 @@
 # django-clean-architecture
 
-Full rewrite of example in progress.
+This project is Python/Django example of a Clean Architecture implementation for pedagogical purposes.
 
-Django example of calling the PayPal API to make payments.
+Implementing the Clean Architecture patterns with Python / Django is not obvious, as Python and Django have not been natively designed to do it.
+That is why I wrote this example as a demo.
 
+I used the Python type hints as much as possible (with the usual limitations).
+
+To implement abstract classes and interfaces, I relied on the `abc` module as Python does not natively provide interfaces.
+
+The private / protected / public statuses of class functions & variables are implemented with the usual Python namespace conventions (starting with a `_` for protected methods and `__` for private methods)
+
+The application is a payment gateway integration REST API, as I designed a very similar system in PHP at iRaiser.
+
+I used the Django REST framework in the `webapps` folder.
+
+Only PayPal is implemented, I will add Stripe later to have several gateway implementations in the example.
 
 ### Organization
 
