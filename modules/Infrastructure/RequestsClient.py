@@ -25,4 +25,5 @@ class RequestsClient(HTTPClientInterface):
     def post(self, endpoint: str, headers: dict, is_form_encoded: bool, data: dict, auth: tuple) -> dict:
         if is_form_encoded:
             headers['Content-Type'] = 'application/x-www-form-urlencoded'
-        return self._process_response(requests.post(endpoint, data=data, headers=headers, auth=auth))
+            return self._process_response(requests.post(endpoint, data=data, headers=headers, auth=auth))
+        return self._process_response(requests.post(endpoint, json=data, headers=headers, auth=auth))

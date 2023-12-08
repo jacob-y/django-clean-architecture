@@ -9,7 +9,13 @@ class ShowOrderDetailsResponse(AbstractPayPalResponse):
         return False
 
     def capture_id(self) -> bool:
-        if len(self._data.get('purchase_units')) > 0:
+        if (
+                self._data.get('purchase_units')
+                and len(self._data.get('purchase_units')) > 0
+                and self._data.get('purchase_units')[0].get('payments')
+                and self._data.get('purchase_units')[0].get('payments').get('captures')
+                and len(self._data.get('purchase_units')[0].get('payments').get('captures')) > 0
+        ):
             return self._data.get('purchase_units')[0].get('payments').get('captures')[0].get('id')
         return False
 
