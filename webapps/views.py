@@ -1,3 +1,5 @@
+from django.http import HttpResponse
+from django.template import loader
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.status import HTTP_201_CREATED, HTTP_200_OK, HTTP_202_ACCEPTED
@@ -59,3 +61,8 @@ def payment_refund(request, payment_id: str) -> Response:
     service = PayPalService(paypal_adaptor)
     service.refund(payment)
     return Response(payment.to_string(), status=HTTP_202_ACCEPTED)
+
+
+def index(request):
+    template = loader.get_template("webapps/index.html")
+    return HttpResponse(template.render({}, request))
